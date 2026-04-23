@@ -16,15 +16,15 @@ jobs:
           node-version: 20
 
       - name: Install Frontend
-        working-directory: Testing/Frontend
+        working-directory: testing/Frontend
         run: npm install
 
       - name: Build Frontend
-        working-directory: Testing/Frontend
+        working-directory: testing/Frontend
         run: npm run build
 
       - name: Build Frontend Docker
-        working-directory: Testing/Frontend
+        working-directory: testing/Frontend
         run: docker build -t frontend-app .
 
   backend:
@@ -38,15 +38,15 @@ jobs:
           python-version: "3.10"
 
       - name: Install Backend Dependencies
-        working-directory: Testing/Backend
+        working-directory: testing/Backend
         run: pip install -r requirements.txt
 
       - name: Run Tests
-        working-directory: Testing/Backend
+        working-directory: testing/Backend
         run: pytest
 
       - name: Build Backend Docker
-        working-directory: Testing/Backend
+        working-directory: testing/Backend
         run: docker build -t backend-app .
 
       - name: Run Backend Container
